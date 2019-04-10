@@ -15,6 +15,7 @@ Contoh:
 2. Membuat thread sejumlah input.
 3. Setiap thread menjalankan fungsi faktorial.
 </pre>
+
 <pre  style="font-family:arial;font-size:12px;border:1px dashed #CCCCCC;width:99%;height:auto;overflow:auto;background:#f0f0f0;;background-image:URL(http://2.bp.blogspot.com/_z5ltvMQPaa8/SjJXr_U2YBI/AAAAAAAAAAM/46OqEP32CJ8/s320/codebg.gif);padding:0px;color:#000000;text-align:left;line-height:20px;"><code style="color:#000000;word-wrap:normal;"> #include&lt;stdio.h&gt;  
  #include&lt;string.h&gt;  
  #include&lt;pthread.h&gt;  
@@ -112,7 +113,18 @@ Terdapat 2 server: server penjual dan server pembeli
   Menggunakan thread, socket, shared memory
 </pre>
 ## Ans
-
+<pre>
+1. Soal diselesaikan dengan 4 proses, yaitu Client&Server Pembeli dan Penjual.
+2. Pembeli :
+   2.1 Client :
+       2.1.1 Client terhubung pada port yang sama dengan server pembeli.
+       2.1.2 Client akan mengirimkan pesan ke server.
+       2.1.3 Client mengambil pesan dari server dan diletakkan pada buffer.
+       2.1.4 Client Mencetak buffer yang diterima dari server.
+   2.2 Server :
+       2.2.1 Server Pembeli akan memiliki shared memory dengan server penjual.
+       2.2.2 
+</pre>
 ## Soal No 3
 <pre>
 Agmal dan Iraj merupakan 2 sahabat yang sedang kuliah dan hidup satu kostan, sayangnya mereka mempunyai gaya hidup yang berkebalikan, dimana Iraj merupakan laki-laki yang sangat sehat,rajin berolahraga dan bangun tidak pernah kesiangan sedangkan Agmal hampir menghabiskan setengah umur hidupnya hanya untuk tidur dan ‘ngoding’. Dikarenakan mereka sahabat yang baik, Agmal dan iraj sama-sama ingin membuat satu sama lain mengikuti gaya hidup mereka dengan cara membuat Iraj sering tidur seperti Agmal, atau membuat Agmal selalu bangun pagi seperti Iraj. Buatlah suatu program C untuk menggambarkan kehidupan mereka dengan spesifikasi sebagai berikut:
