@@ -69,14 +69,18 @@ void* Standby(void *arg){
 			system("clear");
 			printf("%s's Status\nHealth : %d\nHunger : %d\nHygiene : %d\nFood left : %d\n",name, hp, hunger, hygiene, food);
 			if(cooldown!=0) printf("Bath will be ready in %ds\n", cooldown);
-			else printf("Bath is ready");
+			else printf("Bath is ready\n");
 			printf("Choices\n1. Eat\n2. Bath\n3. Battle\n4. Shop\n5. Exit\n");
 			printf("input : %d\n",input);
 			switch(input){
 				case 1:
-					if(food>0){
+					if(food>0&&hunger<200){
 						hunger+=15;
 						food--;
+						if(hunger>200){
+							printf("ENOUGH!\n");
+							hunger=200;
+						}
 					}
 				break;
 				case 2:
@@ -156,7 +160,7 @@ void* soap(void *arg){
 		}
 	}
 }
-
+/*
 void* status_hungry(void *arg){
 	while(1){
 		if(hunger<=0){
@@ -165,10 +169,10 @@ void* status_hungry(void *arg){
 		}
 	}
 }
-
+*/
 void* status_regen(void *arg){
 	while(1){
-		if(menu==0){
+		if(menu==0&&hp<100){
 			hp+=5;
 			sleep(10);
 		}
@@ -195,7 +199,7 @@ void* status_hygiene(void *arg){
 
 void* endgame(void*arg){
 	while(1){
-		if(hp<=0||hygiene==0){
+		if(hp<=0||hygiene<=0||hunger<=0){
 			menu=3;
 			system("clear");
 			printf("Master, whyyyyyy...  *dead*\n");
@@ -219,13 +223,13 @@ int main(){
 	pthread_create( &th[0], NULL, kbhit, NULL);
 	pthread_create( &th[1], NULL, Standby, NULL);
 	pthread_create( &th[2], NULL, battle, NULL);
-	pthread_create( &th[3], NULL, status_hungry, NULL);
-	pthread_create( &th[4], NULL, status_hygiene, NULL);
-	pthread_create( &th[5], NULL, status_regen, NULL);
-	pthread_create( &th[6], NULL, status_hunger, NULL);
-	pthread_create( &th[7], NULL, soap, NULL);
-	pthread_create( &th[8], NULL, shop, NULL);
-	pthread_create( &th[9], NULL, endgame, NULL);
+//	pthread_create( &th[9], NULL, status_hungry, NULL);
+	pthread_create( &th[3], NULL, status_hygiene, NULL);
+	pthread_create( &th[4], NULL, status_regen, NULL);
+	pthread_create( &th[5], NULL, status_hunger, NULL);
+	pthread_create( &th[6], NULL, soap, NULL);
+	pthread_create( &th[7], NULL, shop, NULL);
+	pthread_create( &th[8], NULL, endgame, NULL);
 	int i;
 	for(i=0; i<=9;i++) pthread_join(th[0],NULL);
 }

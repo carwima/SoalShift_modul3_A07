@@ -52,13 +52,14 @@ void* kbhit(void *arg)
     tcsetattr( STDIN_FILENO, TCSANOW, &oldt);
 }
 void* stocks(void*arg){
+	key_t key = 1234;
+	int *stock;
+	int shmid = shmget(key, sizeof(int), IPC_CREAT | 0666);
+	stock = shmat(shmid, NULL, 0);
+	*stock=0;	
 	while(1){
 		input=0;
 		sleep(1);
-		key_t key = 1234;
-		int *stock;
-		int shmid = shmget(key, sizeof(int), IPC_CREAT | 0666);
-		stock = shmat(shmid, NULL, 0);
 		system("clear");
 		printf("Hello shop owner, What do you want?\nAvaiable Stock : %d\nMenu :\n1. Restock\n2. Exit\ninput : %d\n", *stock,input);
 		switch(input){

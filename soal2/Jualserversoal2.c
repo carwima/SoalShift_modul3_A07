@@ -64,9 +64,10 @@ int main(int argc, char const *argv[]) {
 	int *stock;
 	int shmid = shmget(key, sizeof(int), IPC_CREAT | 0666);
 	stock = shmat(shmid, NULL, 0);
+	*stock=0;
 	while(1){
 		valread = read(new_socket , buffer, 1024);
-		if(strcmp(buffer, "jual")==0){
+		if(strcmp(buffer, "tambah")==0){
 			*stock=*stock+1;
 		}
 	}
