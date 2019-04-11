@@ -1,20 +1,16 @@
 # SoalShift_modul3_A07
 
 ## Soal No 1
-<pre>
 Buatlah program C yang bisa menghitung faktorial secara parallel lalu menampilkan hasilnya secara berurutan
 Contoh:
     ./faktorial 5 3 4
     3! = 6
     4! = 24
     5! = 120
-</pre>
 ## Ans
-<pre>
 1. Setiap input disimpan dalam array, kemudian di sort.
 2. Membuat thread sejumlah input.
 3. Setiap thread menjalankan fungsi faktorial.
-</pre>
 
 <pre  style="font-family:arial;font-size:12px;border:1px dashed #CCCCCC;width:99%;height:auto;overflow:auto;background:#f0f0f0;;background-image:URL(http://2.bp.blogspot.com/_z5ltvMQPaa8/SjJXr_U2YBI/AAAAAAAAAAM/46OqEP32CJ8/s320/codebg.gif);padding:0px;color:#000000;text-align:left;line-height:20px;"><code style="color:#000000;word-wrap:normal;"> #include&lt;stdio.h&gt;  
  #include&lt;string.h&gt;  
@@ -96,8 +92,6 @@ Contoh:
 </code></pre>
 
 ## Soal No 2
-<pre>
-
 Pada suatu hari ada orang yang ingin berjualan 1 jenis barang secara private, dia memintamu membuat program C dengan spesifikasi sebagai berikut:
 Terdapat 2 server: server penjual dan server pembeli
   1 server hanya bisa terkoneksi dengan 1 client
@@ -111,9 +105,7 @@ Terdapat 2 server: server penjual dan server pembeli
   Jika stok masih ada maka client yang terkoneksi ke server pembeli akan mencetak “transaksi berhasil”
   Server penjual akan mencetak stok saat ini setiap 5 detik sekali
   Menggunakan thread, socket, shared memory
-</pre>
 ## Ans
-<pre>
 1. Soal diselesaikan dengan 4 proses, yaitu Client&Server Pembeli dan Penjual.
 2. Pembeli :
    2.1 Client :
@@ -124,9 +116,7 @@ Terdapat 2 server: server penjual dan server pembeli
    2.2 Server :
        2.2.1 Server Pembeli akan memiliki shared memory dengan server penjual.
        2.2.2 
-</pre>
 ## Soal No 3
-<pre>
 Agmal dan Iraj merupakan 2 sahabat yang sedang kuliah dan hidup satu kostan, sayangnya mereka mempunyai gaya hidup yang berkebalikan, dimana Iraj merupakan laki-laki yang sangat sehat,rajin berolahraga dan bangun tidak pernah kesiangan sedangkan Agmal hampir menghabiskan setengah umur hidupnya hanya untuk tidur dan ‘ngoding’. Dikarenakan mereka sahabat yang baik, Agmal dan iraj sama-sama ingin membuat satu sama lain mengikuti gaya hidup mereka dengan cara membuat Iraj sering tidur seperti Agmal, atau membuat Agmal selalu bangun pagi seperti Iraj. Buatlah suatu program C untuk menggambarkan kehidupan mereka dengan spesifikasi sebagai berikut:
 Terdapat 2 karakter Agmal dan Iraj
 Kedua karakter memiliki status yang unik
@@ -147,14 +137,12 @@ Program akan berhenti jika Salah Satu :
 WakeUp_Status Agmal >= 100 (Tampilkan Pesan “Agmal Terbangun,mereka bangun pagi dan berolahraga”)
 Spirit_Status Iraj <= 0 (Tampilkan Pesan “Iraj ikut tidur, dan bangun kesiangan bersama Agmal”
 Syarat Menggunakan Lebih dari 1 Thread
-<pre/>
 ## ANS
-<pre>
 1. Membuat sebuah loop tak hingga.
 2. Merecreate thread jika thread sedang tidak disleep.
 3. Proses sleep terjadi ketika flag counter=3 mengakibatkan flag sleep menjadi 1.(0 artinya tidak sleep)
 4. Melakukan exit(0) ketika salah satu proses terpenuhi (Akmal Wake stat = 100 || Iraj spirit stat = 0)
-</pre>
+
 <pre  style="font-family:arial;font-size:12px;border:1px dashed #CCCCCC;width:99%;height:auto;overflow:auto;background:#f0f0f0;;background-image:URL(http://2.bp.blogspot.com/_z5ltvMQPaa8/SjJXr_U2YBI/AAAAAAAAAAM/46OqEP32CJ8/s320/codebg.gif);padding:0px;color:#000000;text-align:left;line-height:20px;"><code style="color:#000000;word-wrap:normal;"> #include&lt;stdio.h&gt;  
  #include&lt;string.h&gt;  
  #include&lt;pthread.h&gt;  
@@ -226,7 +214,6 @@ Syarat Menggunakan Lebih dari 1 Thread
  }  
 </code></pre>
 ## Soal 4
-<pre>
 Buatlah sebuah program C dimana dapat menyimpan list proses yang sedang berjalan (ps -aux) maksimal 10 list proses. Dimana awalnya list proses disimpan dalam di 2 file ekstensi .txt yaitu  SimpanProses1.txt di direktori /home/Document/FolderProses1 dan SimpanProses2.txt di direktori /home/Document/FolderProses2 , setelah itu masing2 file di  kompres zip dengan format nama file KompresProses1.zip dan KompresProses2.zip dan file SimpanProses1.txt dan SimpanProses2.txt akan otomatis terhapus, setelah itu program akan menunggu selama 15 detik lalu program akan mengekstrak kembali file KompresProses1.zip dan KompresProses2.zip 
 Dengan Syarat : 
 Setiap list proses yang di simpan dalam masing-masing file .txt harus berjalan bersama-sama
@@ -235,14 +222,11 @@ Ketika Mengekstrak file .zip juga harus secara bersama-sama
 Ketika Telah Selesai melakukan kompress file .zip masing-masing file, maka program akan memberi pesan “Menunggu 15 detik untuk mengekstrak kembali”
 Wajib Menggunakan Multithreading
 Boleh menggunakan system
-</pre>
 ## ANS
-<pre>
 1. Membuat 2 thread (memastikan semua proses berjalan bersamaan).
 2. Thread 1 : Membuat file > Mengkompres > Meremove > Mengekstrak.
 3. Thread 2 bekerja seperti thread 1, dengan nama yang berbeda.
 4. Semua perintah bisa dijalankan.
-</pre>
 <pre  style="font-family:arial;font-size:12px;border:1px dashed #CCCCCC;width:99%;height:auto;overflow:auto;background:#f0f0f0;;background-image:URL(http://2.bp.blogspot.com/_z5ltvMQPaa8/SjJXr_U2YBI/AAAAAAAAAAM/46OqEP32CJ8/s320/codebg.gif);padding:0px;color:#000000;text-align:left;line-height:20px;"><code style="color:#000000;word-wrap:normal;"> #include&lt;stdio.h&gt;  
  #include&lt;string.h&gt;  
  #include&lt;pthread.h&gt;  
